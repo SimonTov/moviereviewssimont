@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Películas</title>
+</head>
+<body>
+    <h1>Lista de películas</h1>
+    <ul>
+        {% for movie in movies %}
+            <li>
+                <strong>{{ movie.title }}</strong> ({{ movie.year }})<br>
+                Género: {{ movie.genre }}<br>
+                Calificación: {{ movie.rating }}<br>
+                {{ movie.description }}
+            </li>
+            <hr>
+        {% endfor %}
+    </ul>
+</body>
+</html>
