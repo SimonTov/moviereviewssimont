@@ -1,10 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Home - Movie Reviews</title>
+    <meta charset="UTF-8">
+    <title>Películas</title>
 </head>
 <body>
-    <h1>Bienvenido a la página principal, Soy Simón Tovar</h1>
-    <p>Esto está renderizado desde una plantilla HTML.</p>
+    <h1>Lista de películas</h1>
+
+    <form method="get">
+        <input type="text" name="searchMovie" placeholder="Buscar por título">
+        <button type="submit">Buscar</button>
+    </form>
+
+    <hr>
+
+    {% if movies %}
+        <ul>
+            {% for movie in movies %}
+                <li>
+                    <strong>{{ movie.title }}</strong><br>
+                    {{ movie.description }}
+                </li>
+                <hr>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No se encontraron películas.</p>
+    {% endif %}
 </body>
 </html>
