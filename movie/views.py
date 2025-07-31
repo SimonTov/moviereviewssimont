@@ -8,7 +8,12 @@ def movie_list(request):
 
 
 def home(request):
-    return render(request, 'movie/home.html')
+    searchTerm = request.GET.get('searchMovie')
+    if searchTerm:
+        movies = Movie.objects.filter(title__icontains=searchTerm)
+    else:
+        movies = Movie.objects.all()
+    return render(request, 'movie/home.html', {'movies': movies})
 
 
 def about(request):
